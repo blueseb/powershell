@@ -1,5 +1,7 @@
-﻿
-$Path = '~\Downloads\2003\' #define path to folders to find duplicate files
+﻿param (
+    [string] $Path = '~\Downloads\2003\' #define path to folders to find duplicate files
+)
+
 $Files = Get-ChildItem -File -Recurse -path $Path | sort name | Select-Object -property FullName,Length,Name
 
 Write-Host "$($Path) : $($Files.Count) files found"
